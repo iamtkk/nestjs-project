@@ -1,0 +1,11 @@
+# 이메일 인증
+curl -X POST http://localhost:3000/users/email-verify\?signupVerifyToken\=test_token
+# { signupVerifyToken: 'test_token' }
+
+# 로그인
+curl -X POST http://localhost:3000/users/login -H "Content-Type: application/json" -d '{"email": "YOUR_EMAIL@gmail.com", "password": "PASSWORD"}'
+# { email: 'YOUR_EMAIL@gmail.com', password: 'PASSWORD' }
+
+# 회원 정보 조회
+curl -X GET http://localhost:3000/users/user-id
+# user-id
