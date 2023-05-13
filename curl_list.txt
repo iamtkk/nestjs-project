@@ -9,3 +9,7 @@ curl -X POST http://localhost:3000/users/login -H "Content-Type: application/jso
 # 회원 정보 조회
 curl -X GET http://localhost:3000/users/user-id
 # user-id
+
+# 메일발송
+curl -X POST http://localhost:3000/users -H "Content-Type: application/json" -d '{"name":"Taekwan.Kim","email":"iamtk00007@gmail.com","password":"yvkrtkcpusuncetu"}'
+curl -X POST http://localhost:3000/users -H "Content-Type: application/json" -d "{\"name\": \"nestjs\",\"email\": \"iamtk00007@gmail.com\", \"password\": \"yvkrtkcpusuncetu\"}"
