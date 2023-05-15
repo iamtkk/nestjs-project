@@ -26,7 +26,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       password: 'test',
       database: 'test',
       // entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      entities: [ path.join(__dirname, **, *.entity{.ts,.js}'],
+      entities: [ path.join(__dirname,'**','*.entity{.ts,.js}') ],
       synchronize: true,
     }),
   ],
