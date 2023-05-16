@@ -6,6 +6,11 @@ import authConfig from './config/authConfig';
 import { validationSchema } from './config/validationSchema';
 import * as path from 'path';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import * as winston from 'winston';
+import {
+  utilities as nestWinstonModuleUtilities,
+  WinstonModule,
+} from 'nest-winston';
 
 @Module({
   imports: [
@@ -32,6 +37,19 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       migrationsRun: false,
       migrations: [path.join(__dirname, '**', 'migrations', '*.js')],
       migrationsTableName: 'migrations',
+    }),
+    WinstonModule.forRoot({
+      transports: [
+        new winston.transports.Console({
+          level: process.env.NODE_ENV === 'production' ? 'info' : 'silly',
+          format: winston.format.combine(
+            winston.format.timestamp(),
+            nestWinstonModuleUtilities.format.nestLike('MyApp', {
+              prettyPrint: true,
+            }),
+          ),
+        }),
+      ],
     }),
   ],
   controllers: [],
