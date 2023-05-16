@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { UsersModule } from './users/users.module';
 import { ConfigModule } from '@nestjs/config/dist';
 import emailConfig from './config/emailConfig';
+import authConfig from './config/authConfig';
 import { validationSchema } from './config/validationSchema';
 import * as path from 'path';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -14,7 +15,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       envFilePath: [
         path.join(__dirname, 'config', 'env', `.${process.env.NODE_ENV}.env`),
       ],
-      load: [emailConfig],
+      load: [emailConfig, authConfig],
       isGlobal: true,
       validationSchema,
     }),
@@ -27,7 +28,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       database: 'test',
       // entities: [__dirname + '/**/*.entity{.ts,.js}'],
       entities: [path.join(__dirname, '**', '*.entity{.ts,.js}')],
-      synchronize: false,
+      synchronize: true,
       migrationsRun: false,
       migrations: [path.join(__dirname, '**', 'migrations', '*.js')],
       migrationsTableName: 'migrations',

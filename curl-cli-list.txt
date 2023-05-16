@@ -3,7 +3,7 @@ curl -X POST http://localhost:3000/users/email-verify\?signupVerifyToken\=test_t
 # { signupVerifyToken: 'test_token' }
 
 # 로그인
-curl -X POST http://localhost:3000/users/login -H "Content-Type: application/json" -d '{"email": "YOUR_EMAIL@gmail.com", "password": "PASSWORD"}'
+curl -X POST http://localhost:3000/users/login -H "Content-Type: application/json" -d '{"email": "iamtk00007@gmail.com", "password": "yvkrtkcpusuncetu"}'
 # { email: 'YOUR_EMAIL@gmail.com', password: 'PASSWORD' }
 
 # 회원 정보 조회
@@ -13,3 +13,6 @@ curl -X GET http://localhost:3000/users/user-id
 # 메일발송 & 유저생성
 curl -X POST http://localhost:3000/users -H "Content-Type: application/json" -d '{"name":"Taekwan.Kim","email":"iamtk00007@gmail.com","password":"yvkrtkcpusuncetu"}'
 curl -X POST http://localhost:3000/users -H "Content-Type: application/json" -d "{\"name\": \"nestjs\",\"email\": \"iamtk00007@gmail.com\", \"password\": \"yvkrtkcpusuncetu\"}"
+
+# 유저정보 조회 (JWT 인가)
+curl http://localhost:3000/users/01H0H4DBK7HZ4ZQG8H73YHVD47 -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxSDBINERCSzdIWjRaUUc4SDczWUhWRDQ3IiwibmFtZSI6IlRhZWt3YW4uS2ltIiwiZW1haWwiOiJpYW10azAwMDA3QGdtYWlsLmNvbSIsImlhdCI6MTY4NDIwNjYxOSwiZXhwIjoxNjg0MjkzMDE5LCJhdWQiOiJleGFtcGxlLmNvbSIsImlzcyI6ImV4YW1wbGUuY29tIn0.Ya1LD9rqIqe5EcxmmDu-1716Vy2BaTu5PFI1ieWKBYY"

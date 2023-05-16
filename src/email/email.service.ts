@@ -30,7 +30,7 @@ export class EmailService {
   async sendMemberJoinEmail(email: string, signupVerifyToken: string) {
     const baseUrl = this.config.baseUrl;
 
-    const url = `${baseUrl}/users/verify-email?token=${signupVerifyToken}`;
+    const url = `${baseUrl}/users/email-verify?signupVerifyToken=${signupVerifyToken}`;
     const mailOptions: EmailOptions = {
       to: 'neworld.kim@gmail.com',
       subject: '가입 인증 메일',
